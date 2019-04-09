@@ -1,0 +1,35 @@
+<h1>View Project</h1>
+
+<!-- Part 3: View a single project -->
+
+
+Title: {{project.title}}<br/>
+Goal: {{project.goal}}<br/>
+Description: {{project.description}}<br/>
+Start: {{project.start}}<br/>
+End: {{project.end}}<br/>
+<form action = "/project/{{project.id}}" method = "POST">
+  Name: <input type="text" name="name" value="{{project.name}}"><br>
+  Amount: <input type="number" name="amount" value="{{project.amount}}"><br>
+  <input type="submit" value="Submit">
+</form>
+Total amount of contributions: {{total}}<br>
+Percentage of project goal met:
+<div class="progress">
+  <div class="progress-bar progress-bar-striped" role="progressbar" aria-valuenow="{{percent}}"
+  aria-valuemin="0" aria-valuemax="100" style="width:{{percent}}%">
+    {{percent}}%
+  </div>
+</div>
+Contributions:
+{{#each project.contributions}}
+  <ul>
+    {{this.name}} contributed {{this.amount}}<br>
+  </ul>
+{{/each}}<br>
+Catergory: {{project.catergory}}
+
+
+<!-- Part 4: Contribute to a project -->
+
+<!-- YOUR CODE HERE -->
